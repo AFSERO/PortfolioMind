@@ -1,0 +1,4 @@
+# Root requirements file - references backend dependencies
+# For backend-specific dependencies, see backend/requirements.txt
+
+-r backend/requirements.txt

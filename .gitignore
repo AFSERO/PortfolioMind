@@ -1,0 +1,64 @@
+# =============================================================================
+# PortfolioMind - Git Ignore Configuration
+# =============================================================================
+
+# Environment & Credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+auth.json
+
+# Local / Personal Contexts & Documents
+*investment-codex-context/
+*.pdf
+*.csv
+*.xlsx
+*.doc
+*.docx
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+env/
+venv/
+
+# Database & Local Volumes
+postgres_data/
+codex_data/
+.local/
+*.sqlite
+*.sqlite3
+*.db
+
+# Node / Frontend
+node_modules/
+dist/
+.npm
+.eslintcache
+.turbo/
+
+# Codex / AI Tools
+.codex/
+.agents/
+.claude/
+*.local.json
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

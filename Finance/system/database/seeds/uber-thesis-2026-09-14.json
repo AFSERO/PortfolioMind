@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-09-14T00:00:00+00:00",
+  "core_investment_rationale": "Pass 3 research conclusion: WATCHLIST, MEDIUM confidence. Local demand/supply density, Mobility cash generation and growing Delivery contribution can compound SBC-inclusive operating earnings and cash per share. At the dated $71.62 price, base value $59-85 (centre about $70) offered no clear margin of safety; this is research classification, not a portfolio decision.",
+  "key_assumptions": [
+    "Analyst base scenario: five-year bookings CAGR about 14%; EBIT/bookings rises from 3.11% to 4.5%, economic operating FCFF from $5.67B to $12.91B. Not company guidance.",
+    "Valuation-sensitive: base WACC 10.5%, terminal growth 3%, terminal cash tax 23%, incremental ROIC 25%; about 74% of base value is terminal. Fixed diluted denominator 2.050225B; no free buyback uplift.",
+    "Reverse DCF at the dated price requires about 18.8% economic FCF CAGR to $13.42B in year five; model inference, not observed market consensus.",
+    "TTM reported FCF $10.116B differs from normalized cash FCF $7.22-7.62B and shareholder economic FCF $5.28-5.68B. Insurance, tax, leases and SBC matter; proxies are not audited measures.",
+    "AV remains MIXED: hybrid demand aggregation may preserve value; direct customer channels and fleet guarantees may compress contribution or raise capital intensity.",
+    "Standalone operating forecast plus existing holdings; Delivery Hero future closing is not already consolidated. Incremental deal NPV=0 is a modelling convention, not evidence of no risk.",
+    "Already known at baseline: Delivery Hero offer and existing stake/TRS exposure; announced Rivian/Lucid AV commitments; final prospectus for EUR4.5B bonds with expected September 15 settlement, not yet completed on September 14. Repetition is not a new change; actual settlement, new terms or financial consequences may be."
+  ],
+  "growth_drivers": [
+    "Organic Mobility demand and local matching density.",
+    "Delivery, advertising and cross-platform monetization with operating leverage; incremental merchant economics must remain sustainable.",
+    "SBC-inclusive operating profit and sustainable cash per share growth; gross bookings alone are insufficient."
+  ],
+  "moat_or_competitive_assumptions": [
+    "Mobility has a real but conditional local density advantage; group-wide monopoly or wide moat is not established.",
+    "Low switching costs, multihoming and city-level competitors limit pricing power.",
+    "AV distribution value depends on customer relationship, partner utilization and net contribution after capital commitments."
+  ],
+  "key_risks": [
+    "Insurance/claims and regulatory or labor costs impair unit economics.",
+    "Reported FCF overstates sustainable owner economics if reserve timing, cash tax and recurring SBC are ignored.",
+    "AV direct channels weaken demand ownership and contribution; fleet funding or guarantees raise capital burden.",
+    "M&A, Delivery Hero financing and private holdings realization may reduce financial flexibility or earn below the cost of capital.",
+    "Valuation requires strong growth and margin execution; lower growth and flat margins do not support the dated price."
+  ],
+  "invalidation_conditions": [
+    "Loss of repeat demand relationship or structural take-rate/contribution compression.",
+    "Insurance or regulation causes negative unit economics.",
+    "Large acquisition/fleet commitments earn below cost of capital for a prolonged period.",
+    "Monitoring warnings: worsening same-city retention/wait times despite higher promotions; lower merchant contribution after advertising; direct AV channels achieve comparable utilization without Uber."
+  ],
+  "key_kpis": [
+    "Organic gross bookings, trips, frequency and acquisition-adjusted segment contribution.",
+    "GAAP EBIT/bookings and SBC-inclusive Mobility/Delivery segment operating income/bookings.",
+    "Reported-to-normalized FCF bridge, insurance claims/recoverables, cash taxes, leases and SBC.",
+    "Diluted economic cash/share and actual share count; capital committed to M&A and AV.",
+    "Research reassessment triggers: economic cash >=$6.5B and cash/share >=$3.15 with flat/down share count, not reserve/tax timing; bookings growth around >15% and EBIT/GB >=3.6% for two reporting periods. These are not automatic promotion rules."
+  ],
+  "catalysts": [
+    "New reporting periods clarify cash conversion and margin durability.",
+    "Delivery Hero closing, financing and retained-asset economics become clearer.",
+    "AV agreements disclose net contribution and binding Uber capital obligations.",
+    "Dated research valuation reassessment bands: $50-55 if business assumptions hold; $55-60 only with stronger cash/margin evidence. Not entry orders."
+  ],
+  "open_questions": [
+    "Insurance claims/recoverables net cash bridge and sustainable float benefit remain unresolved.",
+    "September cash, debt and share denominator update; private holdings realizable value.",
+    "Recurring SBC replacement cost and sustainable shareholder cash conversion.",
+    "AV vehicle financing, residual value and minimum utilization/revenue guarantees: who bears binding risk and what return remains?",
+    "Delivery Hero post-closing net economics, financing and capital return.",
+    "Incremental cross-platform/merchant returns and city/cohort retention are incompletely disclosed."
+  ],
+  "confidence": "MEDIUM",
+  "source_artifact_references": [
+    {
+      "path": "research/UBER/2026-09-14-pass-3/research-report.md",
+      "sections": "2, 6-15; final thesis, risks, reassessment and uncertainties",
+      "as_of_precision": "date only; midnight UTC is a conservative retrieval boundary, not a claimed report completion time"
+    },
+    {
+      "path": "research/UBER/2026-09-14-pass-3/valuation-model.md",
+      "sections": "3, 5-9; normalization, base, reverse DCF, AV and capital assumptions"
+    },
+    {
+      "path": "research/UBER/2026-09-13-pass-1/research-report.md",
+      "sections": "5, 11-12; conditional moat, monitoring warnings and AV uncertainties"
+    },
+    {
+      "path": "research/UBER/2026-09-14-pass-2/research-report.md",
+      "sections": "financial normalization, insurance, SBC, capital allocation and tax normalization"
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --surface: 210 40% 98%;
+    --surface-elevated: 0 0% 100%;
+    --positive: 142 71% 36%;
+    --negative: 0 72% 51%;
+    --warning: 38 92% 50%;
+    --info: 217 91% 60%;
+    --shadow-card: 0 12px 32px hsl(222 47% 11% / 0.08);
+    --radius: 0.75rem;
+    --profit: 142 76% 36%;
+    --loss: 0 84% 60%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 36% 10%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 36% 10%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 164 86% 8%;
+    --secondary: 217 28% 16%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 28% 15%;
+    --muted-foreground: 215 18% 66%;
+    --accent: 217 28% 18%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 25% 20%;
+    --input: 217 25% 22%;
+    --ring: 160 84% 39%;
+    --surface: 222 40% 8%;
+    --surface-elevated: 222 32% 12%;
+    --positive: 142 69% 58%;
+    --negative: 0 84% 65%;
+    --warning: 43 96% 56%;
+    --info: 213 94% 68%;
+    --shadow-card: 0 14px 36px hsl(222 72% 2% / 0.22);
+    --profit: var(--positive);
+    --loss: var(--negative);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply min-h-screen bg-background text-foreground antialiased;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  .app-page {
+    @apply mx-auto flex w-full max-w-[1600px] flex-col gap-6 px-4 py-5 sm:px-6 sm:py-7 lg:px-8;
+  }
+  .data-surface {
+    @apply rounded-xl border bg-card shadow-card;
+  }
+  .financial-value {
+    @apply tabular-nums tracking-tight;
+  }
+  /* Dashboard presentation only; shared theme and other pages retain their tokens. */
+  .dashboard-page {
+    @apply max-w-[120rem] gap-4;
+    container: dashboard-layout / inline-size;
+  }
+  .dashboard-page .dashboard-card {
+    @apply min-w-0 rounded-xl border border-border/60 bg-card/40 shadow-none;
+    background-image: linear-gradient(125deg, hsl(var(--surface-elevated) / 0.25), transparent 65%);
+  }
+  .dashboard-page .dashboard-card-title {
+    @apply text-sm font-semibold tracking-normal;
+  }
+  .dashboard-page .dashboard-metric-label {
+    @apply mb-1 text-[10px] font-medium uppercase tracking-wide text-muted-foreground;
+  }
+  .dashboard-page .dashboard-metric-value {
+    @apply break-words text-base font-semibold tabular-nums tracking-tight;
+  }
+  .dashboard-page .dashboard-summary-header > * + * {
+    margin-top: 0;
+  }
+  .dashboard-page .dashboard-summary {
+    container-type: inline-size;
+  }
+  @container (max-width: 34rem) {
+    .dashboard-page .dashboard-metrics {
+      @apply grid-cols-2;
+    }
+    .dashboard-page .dashboard-metrics > div:nth-child(odd) {
+      @apply border-l-0 pl-0;
+    }
+  }
+  .dashboard-page .dashboard-timeframes {
+    @apply gap-0 rounded-xl border border-border/50 bg-background/30 p-0.5;
+  }
+  .dashboard-page .dashboard-timeframes button {
+    @apply h-7 min-w-8 px-2 text-[10px] text-muted-foreground;
+  }
+  .dashboard-page .dashboard-timeframes button[data-state='on'] {
+    @apply bg-accent font-semibold text-foreground shadow-sm;
+  }
+  .dashboard-page .dashboard-profile-banner {
+    @apply border-info/20;
+  }
+  .dashboard-page .dashboard-assessment-button {
+    @apply bg-info text-background hover:bg-info/90;
+  }
+  .dashboard-allocation {
+    container-type: inline-size;
+  }
+  @container dashboard-layout (min-width: 32rem) {
+    .dashboard-page .dashboard-pulse-grid {
+      @apply grid-cols-2;
+    }
+  }
+  @container (min-width: 20rem) {
+    .dashboard-page .dashboard-allocation-body {
+      @apply flex-row;
+    }
+  }
+  @container dashboard-layout (min-width: 60rem) {
+    .dashboard-page .dashboard-bottom-grid {
+      @apply grid-cols-3;
+    }
+  }
+  @container dashboard-layout (min-width: 68rem) {
+    .dashboard-page .dashboard-pulse-grid {
+      @apply grid-cols-4;
+    }
+    .dashboard-page .dashboard-portfolio-grid {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,123 @@
+# Open Design Questions
+
+- [x] Core lifecycle and protocol / gate / policy-component roles: MVP-READY (15.09.2026; design freeze, not implemented)
+- [ ] Detailed protocol trigger conditions (core trigger concepts recorded)
+- [ ] Detailed protocol-to-protocol routing rules (core relationships recorded)
+- [ ] Scheduler / calendar architecture
+- [ ] Persistent state model
+- [ ] Database schema
+- [ ] JSON context format
+- [ ] Context builders
+- [ ] Data source architecture
+- [ ] API / MCP / scraping strategy
+- [x] Main recommendation state set: ADD / HOLD / REDUCE / SELL / REVIEW REQUIRED (design decision; not implemented)
+- [ ] Research freshness
+- [ ] Event handling
+- [ ] Model / effort routing
+- [ ] Monitoring cadence
+- [ ] Write permissions
+- [ ] Automation boundaries
+- [ ] Machine record schema
+- [ ] Human brief standard
+- [ ] Protocol-specific output fields
+- [ ] Persistent storage of protocol outputs
+- [ ] News source universe
+- [ ] Watchlist monitoring scope
+- [ ] Final monitoring cadence
+- [ ] Materiality rules
+- [ ] Verification/confidence model
+- [ ] Duplicate detection
+- [ ] Event-to-protocol routing
+- [ ] Notification policy
+- [ ] Portfolio Monitoring Cheap Pre-Check scope and criteria
+- [ ] Portfolio Monitoring pre-check-to-protocol routing rules
+- [ ] Technical analysis data source
+- [ ] Chart data / OHLCV source
+- [ ] TradingView or alternative integration
+- [ ] Technical-plan schema
+- [ ] Entry-zone representation
+- [ ] Support/resistance representation
+- [ ] Technical review triggers
+- [ ] Relationship between technical invalidation and fundamental thesis
+- [ ] Chart freshness requirements
+- [ ] Recommendation confidence standard
+- [ ] Protocol-specific recommendation rules
+- [ ] Recommendation persistence/history
+- [ ] Interaction with portfolio sizing
+- [ ] Interaction with replacement candidate protocol
+- [ ] Valuation status thresholds
+- [ ] Single-asset change classification
+- [ ] Single Asset Monitoring sub-protocol routing rules
+- [ ] Single Asset Monitoring minimum context package
+- [ ] Single Asset Monitoring review freshness
+- [ ] Single Asset Monitoring escalation to Deep Research
+- [ ] Confidence aggregation
+- [ ] Asset-level recommendation persistence
+- [ ] Earnings data source
+- [ ] Consensus estimate source
+- [ ] Earnings KPI mapping by business type
+- [ ] Guidance normalization
+- [ ] Earnings-call transcript handling
+- [ ] Earnings freshness
+- [ ] Earnings Review confidence standard
+- [ ] Earnings Review materiality threshold
+- [ ] Thesis representation
+- [ ] Thesis assumption structure
+- [ ] Thesis invalidation threshold
+- [ ] Thesis confidence
+- [ ] Thesis evidence weighting
+- [ ] Thesis contradiction handling
+- [ ] Thesis freshness
+- [ ] When Thesis Review should escalate to Deep Research
+- [ ] Valuation model representation
+- [ ] Valuation freshness
+- [ ] Valuation reference price source
+- [ ] Valuation scenario standards
+- [ ] Margin-of-safety framework and thresholds
+- [ ] Valuation confidence scoring
+- [ ] Valuation method selection
+- [ ] When full valuation rebuild is required
+- [ ] Portfolio health representation
+- [ ] Portfolio concentration thresholds
+- [ ] Portfolio risk aggregation
+- [ ] Portfolio correlation / overlap analysis
+- [ ] Portfolio context freshness
+- [ ] Portfolio cash / liquidity framework
+- [ ] Portfolio rebalance threshold
+- [ ] When Full Portfolio Review should trigger Opportunity Discovery
+- [ ] Discovery candidate universe construction
+- [ ] Discovery screening data sources
+- [ ] Discovery cadence
+- [ ] Discovery candidate scoring
+- [ ] Discovery portfolio-fit weighting
+- [ ] Duplicate / rejected candidate cooldown
+- [ ] Discovery market-regime awareness
+- [ ] When aggressive / asymmetric discovery should run
+- [ ] Replacement portfolio role representation
+- [ ] Released-capital representation
+- [ ] Replacement candidate comparison standard
+- [ ] Replacement minimum improvement threshold
+- [ ] Replacement overlap penalty
+- [ ] When cash / wait should win in Replacement Candidate
+- [ ] When Replacement Candidate should trigger new Opportunity Discovery
+- [ ] Replacement candidate freshness / cooldown
+- [ ] Deep Research pass structure and completion standard
+- [ ] Deep Research source / evidence representation
+- [ ] Deep Research confidence
+- [ ] Deep Research asset-specific templates
+- [ ] Deep Research freshness thresholds (related to Research freshness)
+- [ ] Deep Research open-question tracking
+- [ ] Normalized financial calculation layer
+- [ ] Threshold for full research rebuild
+- [ ] Deep Research protocol cost / effort control
+- [ ] Deep Research Machine Record schema (within the open Machine record schema design)
+- [ ] Preliminary Screening thresholds
+- [ ] Portfolio Fit scoring
+- [ ] Risk-budget framework
+- [ ] Max-position rules
+- [ ] Conviction representation for sizing
+- [ ] Volatility treatment in sizing
+- [ ] Staged-entry sizing
+- [ ] Sizing policy configuration
+
+Core design freeze, yukarıdaki açık soruları kapatmaz. Core workflow için conceptual blocker saptanmamıştır; özellikle sizing'in gerçek sayısal sonuç üretmesi için ilgili policy / constraints belirlenmelidir. MVP implementation'a başlanabilir olması production readiness veya bu görevde implementation yetkisi anlamına gelmez.

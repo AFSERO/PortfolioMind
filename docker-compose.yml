@@ -1,0 +1,109 @@
+# =============================================================================
+# LOCAL DEVELOPMENT ARCHITECTURE:
+# PortfolioMind runs entirely inside Docker Compose:
+#   - db: PostgreSQL 16
+#   - backend: FastAPI + Finance/investment_intelligence + Linux Codex CLI
+#   - frontend: React / Vite dev server with proxy to backend
+#
+# Canonical Local Dev Startup:
+#   docker compose up -d --build
+#
+# One-time Codex Authentication (headless / device code):
+#   docker compose run --rm backend codex login --device-auth
+# =============================================================================
+
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: networth
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Configure POSTGRES_PASSWORD in the ignored root .env}
+      POSTGRES_DB: networth
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U networth"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    environment:
+      # These override any matching keys in .env
+      DATABASE_URL: ${DATABASE_URL:?Configure DATABASE_URL in the ignored root .env}
+      FRONTEND_ORIGIN: http://localhost:5173
+      SECRET_KEY: ${SECRET_KEY:?Configure SECRET_KEY in the ignored root .env}
+      INTEGRATION_TOKEN: ${INTEGRATION_TOKEN:-}
+      INTEGRATION_USER_ID: ${INTEGRATION_USER_ID:-}
+      # Outbound Finance client uses the same scoped bridge credential.
+      PORTFOLIOMIND_API_TOKEN: ${INTEGRATION_TOKEN:-}
+      PYTHONPATH: /app:/Finance/src
+      FINANCE_SRC: /Finance/src
+      FINANCE_PROTOCOLS_DIR: /Finance/system/protocols
+      CODEX_DEFAULT_TIMEOUT_SECONDS: 180
+      CODEX_DEEP_RESEARCH_TIMEOUT_SECONDS: 600
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      # Bind-mount source for hot reload — Python packages installed into
+      # /usr/local/lib are unaffected by this mount.
+      - ./backend:/app
+      - ./Finance:/Finance
+      - codex_data:/root/.codex
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    command: >
+      sh -c "alembic upgrade head &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      BACKEND_URL: http://backend:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+    volumes:
+      # Bind-mount source for hot reload.
+      - ./frontend:/app
+      # Named volume sits on top of the bind mount and preserves the
+      # node_modules installed during the image build.
+      - node_modules:/app/node_modules
+    # Keep the persistent node_modules volume synchronized when package files change
+    command: sh -c "npm install && npm run dev"
+  # -------------------------------------------------
+  # Cloudflare Quick Tunnel and optional reverse proxy
+  # -------------------------------------------------
+  proxy:
+    image: nginx:alpine
+    volumes:
+      - ./proxy/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - frontend
+      - backend
+    restart: unless-stopped
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    command: tunnel --no-autoupdate --url http://proxy:80
+    depends_on:
+      - proxy
+    restart: unless-stopped
+volumes:
+  postgres_data:
+  node_modules:
+  codex_data:
